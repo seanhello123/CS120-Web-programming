@@ -1,0 +1,120 @@
+/* Set the font to a sans serif Google font */
+/* Display a background image */
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* background-image: url("images/dandan.jpg");
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+/* Set the color, size, and margin of H1 and H2 */
+h1 {
+    color: #a72741;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #0e8554;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Add a border to the list and center it on the page */
+ul {
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+ol {
+    border: 1px solid #111111;
+    width: 300px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+ol li {
+    text-align: left;
+}
+
+/* Display a background image */
+/* body {
+    background-image: url("images/dandan.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center top;
+} */
+
+
+/* Display your favorite food image using a background image. Place the explanatory text in a div that is adjacent to it. */
+.food-container {
+    display: flex;
+}
+
+.food-image {
+    width: 300px;
+    height: 200px;
+    background-image: url("images/dandan.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.food-description {
+    padding: 10px;
+}
+
+/* Style the explanatory text in a div adjacent to the image */
+.image-text {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Add background color to alternate lines in the table */
+table {
+  border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+  background-color: #5d5555;
+}
+
+
+
+
+.form-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.label-column {
+    flex-basis: 100px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.input-column {
+    flex-basis: 30px;
+}
+
+/* Add icons for facebook and twitter to the page that are always 100 px from the top of the page, 30px in from the right side.*/
+.social-icons {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
