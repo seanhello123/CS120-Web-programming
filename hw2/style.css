@@ -7,6 +7,18 @@ body {
     background-position: center; */
 }
 
+#top {
+    background-image: url(images/banner1.jpg);
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    padding-top: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 40px;
+    z-index: 999
+}
+
 /* Set the color, size, and margin of H1 and H2 */
 h1 {
     color: #a72741;
@@ -28,13 +40,14 @@ h2 {
 
 /* Add a border to the list and center it on the page */
 ul {
-  border: 1px solid #ccc;
-  margin: 0 auto;
-  padding: 10px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 ol {
     border: 1px solid #111111;
+    /* background-color: #666; */
     width: 300px;
     margin: 0 auto;
     padding: 50px;
@@ -43,13 +56,6 @@ ol {
 ol li {
     text-align: left;
 }
-
-/* Display a background image */
-/* body {
-    background-image: url("images/dandan.jpg"); 
-    background-repeat: no-repeat;
-    background-position: center top;
-} */
 
 
 /* Display your favorite food image using a background image. Place the explanatory text in a div that is adjacent to it. */
@@ -76,15 +82,13 @@ ol li {
 }
 
 /* Add background color to alternate lines in the table */
-table {
+/* table {
   border-collapse: collapse;
-}
+} */
 
 table tr:nth-child(even) {
   background-color: #5d5555;
 }
-
-
 
 
 .form-row {
