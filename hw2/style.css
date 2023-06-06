@@ -2,13 +2,12 @@
 /* Display a background image */
 body {
     font-family: 'Open Sans', sans-serif;
-    /* background-image: url("images/dandan.jpg");
-    background-repeat: no-repeat;
-    background-position: center; */
 }
 
+
+/* add banner at top */
 #top {
-    background-image: url(images/banner1.jpg);
+    background-image: url("images/banner1.jpg");
     background-size: cover;
     height: 200px;
     width: 100%;
@@ -90,7 +89,7 @@ table tr:nth-child(even) {
   background-color: #5d5555;
 }
 
-
+/* style forms */
 .form-row {
     display: flex;
     margin-bottom: 10px;
