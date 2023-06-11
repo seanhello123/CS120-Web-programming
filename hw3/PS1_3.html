@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Sorting</title>
+  <script>
+    // Prompt the user for the first number
+    var number1 = prompt("Enter the first number:");
+
+    // Prompt the user for the second number
+    var number2 = prompt("Enter the second number:");
+
+    // Convert the input to numbers
+    number1 = parseFloat(number1);
+    number2 = parseFloat(number2);
+
+    // Compare the numbers and store them in variables
+    var smallest, largest;
+    if (number1 <= number2) {
+        smallest = number1;
+        largest = number2;
+    } else {
+        smallest = number2;
+        largest = number1;
+    }
+
+    // Display the sorted numbers on the page
+    window.onload = function () {
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "Numbers in ascending order: " + smallest + ", " + largest;
+    };
+  </script>
+</head>
+<body>
+  <h1>Number Sorting</h1>
+  <p id="result"></p>
+</body>
+</html>

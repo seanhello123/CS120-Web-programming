@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Odd Numbers in Range</title>
+  <script>
+    // Prompt the user for the starting number of the range
+    var start = parseInt(prompt("Enter the starting number of the range:"));
+
+    // Prompt the user for the ending number of the range
+    var end = parseInt(prompt("Enter the ending number of the range:"));
+
+    // Initialize variables for storing odd numbers and the sum of all elements
+    var oddNumbers = "";
+    var sum = 0;
+
+    // Loop through the range and find the odd numbers and the sume in one loop
+    for (var i = start; i <= end; i++) {
+      if (i % 2 !== 0) {
+        oddNumbers += i + " ";
+      }
+       sum += i;
+    }
+
+    // Display the odd numbers and the sum on the page
+    window.onload = function() {
+      var oddNumbersElement = document.getElementById("oddNumbers");
+      var sumElement = document.getElementById("sum");
+
+      oddNumbersElement.textContent = "Odd Numbers in Range: " + oddNumbers;
+      sumElement.textContent = "Sum of Numbers in Range: " + sum;
+    };
+  </script>
+</head>
+<body>
+  <h1>Odd Numbers and Sum of Numbers in Range</h1>
+  <p id="oddNumbers"></p>
+  <p id="sum"></p>
+</body>
+</html>

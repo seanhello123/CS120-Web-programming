@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Times Table</title>
+  <script>
+    // Function to display the times table
+    function displayTimesTable(number) {
+      var result = "";
+      for (var i = 1; i <= 12; i++) {
+        var multiplication = number + " x " + i + " = " + (number * i);
+        result += multiplication + "<br>";
+      }
+      document.getElementById("timesTable").innerHTML = result;
+    }
+
+    // Prompt the user for a number
+    var number = parseInt(prompt("Enter a number:"));
+
+    // Call the function to display the times table
+    window.onload = function () {
+        displayTimesTable(number);
+    };
+  </script>
+</head>
+<body>
+  <h1>Times Table</h1>
+  <div id="timesTable"></div>
+</body>
+</html>

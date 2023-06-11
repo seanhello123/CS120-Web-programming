@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Count Numbers Less Than Value</title>
+    <script>
+        // Function to count the number of items in the array that are less than the value
+        function count(array, value) {
+            var count = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] < value) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // Function to process the array, call count(), and display the result on the page
+        function processArray() {
+            var arrayString = prompt("Enter numbers separated by spaces (e.g., 3 55 30 28 9 12):");
+            var value = parseInt(prompt("Enter a value:"));
+
+            var numbers = arrayString.split(" ").map(Number);
+            var result = count(numbers, value);
+
+            document.getElementById("inputArray").textContent = "Array Entered: [" + arrayString + "]";
+            document.getElementById("inputValue").textContent = "Value Entered: " + value;
+            document.getElementById("result").textContent = "Count: " + result;
+        }
+
+        // Call the processArray() function
+       window.onload = function () {
+             processArray();
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Count Numbers Less Than Value In Array</h1>
+    <p id="inputArray"></p>
+    <p id="inputValue"></p>
+    <p id="result"></p>
+</body>
+
+</html>
