@@ -61,7 +61,8 @@ p {
 
 footer {
   text-align: center;
-  padding: 40px;
+  /* padding: 40px; */
+  padding-top: 40px;
   background-color: #f5f5dc;
   color: black;
   font-family: fantasy;
@@ -81,6 +82,8 @@ a:hover {
 .topnav {
   background-color: #333;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -285,8 +288,8 @@ table, th, td {
 /* Add icons for facebook and twitter to the page that are always on the top right side of the page.*/
 .social-icons {
   position: fixed;
-  top: 5.5em;
-  right: 3em;
+  top: 1em;
+  right: 0em;
 }
 
 .social-icons a {
