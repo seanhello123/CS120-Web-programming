@@ -11,7 +11,7 @@ h1 {
     font-family: Copperplate, Papyrus, fantasy;
     /* font-size: 70px;  */
     font-size: 4.375rem; 
-    font-weight: bold; 
+    font-weight: bold;
     letter-spacing: 2px; 
     line-height: 1; 
     text-align: center; 
@@ -66,7 +66,47 @@ footer {
   background-color: #f5f5dc;
   color: black;
   font-family: fantasy;
+}
 
+/* Media query to change font size for smaller screens */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3.375rem;
+    /* Adjust the multiplier as needed */
+  }
+
+  h2 {
+    font-size: 2.125rem;;
+    /* Adjust the multiplier as needed */
+  }
+
+  h3 {
+    font-size: 1rem;
+    /* Adjust the multiplier as needed */
+  }
+
+  h4 {
+    font-size: 0.85rem;
+    /* Adjust the multiplier as needed */
+  }
+
+  h5 {
+    font-size: 0.5rem;
+    /* Adjust the multiplier as needed */
+  }
+
+  p {
+    font-size: 0.75rem;
+    /* Adjust the multiplier as needed */
+  }
+  
+  footer {
+    font-size: 0.75rem;
+    /* Adjust the multiplier as needed */
+  }
+
+  
+  
 }
 
 a{text-decoration: none;}
@@ -82,13 +122,15 @@ a:hover {
 .topnav {
   background-color: #333;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
+  display: inline-block;
+  /* float: left; */
   color: #f2f2f2;
   text-align: center;
   padding: 25px 40px;
@@ -106,6 +148,13 @@ a:hover {
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+@media (max-width: 610px) {
+  .topnav a {
+    display: block;
+    padding: 14px 0;
+  }
 }
 
 .gallery {
@@ -146,11 +195,11 @@ a:hover {
   width:  100 px;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .flex-item-right, .flex-item-left {
     flex: 100%;
   }
-}
+} */
 
 /*Service Page */
 ul {
@@ -207,6 +256,13 @@ table, th, td {
   padding: 1em;
   border-radius: 10em;
 }
+
+@media (max-width: 600px) {
+  .quote {
+      font-size: 15px;
+    }
+}
+
 
 /* Contact Us page*/
 .form-style{
@@ -303,26 +359,3 @@ table, th, td {
 }
 
 
-/* add media query for smaller screen desplay */
-@media (max-width: 768px) {
-  h1 {
-    width: 100%;
-    /* Adjust the width for smaller screens */
-  }
-  h2 {
-    width: 100%;
-    /* Adjust the width for smaller screens */
-  }
-  h3 {
-    /* Adjust the width for smaller screens */
-    width: 100%;
-  }
-  h4 {
-    width: 100%;
-    /* Adjust the width for smaller screens */
-  }
-  p {
-   
-    /* Allow long words to break */
-  }
-}
