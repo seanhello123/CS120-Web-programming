@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order System</title>
+    <script>
+        window.onload = function () {
+            var items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
+            var prices = [10, 15, 20, 25, 30];
+
+            var itemSelect = document.getElementById("itemSelect");
+            var orderDisplay = document.getElementById("orderDisplay");
+            var totalDisplay = document.getElementById("totalDisplay");
+            var quantityInput = document.getElementById("quantityInput");
+
+            for (var i = 0; i < items.length; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = items[i];
+                itemSelect.appendChild(option);
+            }
+
+            var order = [];
+            var total = 0;
+
+            function addItem() {
+                var selectedIndex = itemSelect.selectedIndex;
+                var quantity = parseInt(quantityInput.value);
+
+                if (isNaN(quantity) || quantity < 1 || quantity > 100) {
+                    alert("Please enter a valid quantity between 1 and 100.");
+                    return;
+                }
+
+                var item = items[selectedIndex];
+                var price = prices[selectedIndex];
+                var subtotal = price * quantity;
+
+                order.push({ item: item, quantity: quantity, price: price, subtotal: subtotal });
+                total += subtotal;
+
+                var orderText = "";
+                for (var i = 0; i < order.length; i++) {
+                    orderText += order[i].quantity + " of " + order[i].item + " - $" + order[i].subtotal + "<br>";
+                }
+
+                orderDisplay.innerHTML = orderText;
+                totalDisplay.innerHTML = "Total: $" + total;
+
+                // quantityInput.value = "";
+            }
+
+            function startOver() {
+                order = [];
+                total = 0;
+                orderDisplay.innerHTML = "";
+                totalDisplay.innerHTML = "Total: $0";
+                quantityInput.value = "";
+            }
+
+            document.getElementById("addButton").addEventListener("click", addItem);
+            document.getElementById("startOverButton").addEventListener("click", startOver);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Order System</h1>
+
+    <form>
+        <label for="itemSelect">Item:</label>
+        <select id="itemSelect"></select>
+
+        <br><br>
+
+        <label for="quantityInput">Quantity:</label>
+        <input type="number" id="quantityInput" min="1" max="100">
+
+        <button type="button" id="addButton">Add</button>
+    </form>
+
+    <div id="orderDisplay"></div>
+    <div id="totalDisplay">Total: $0</div>
+
+    <br>
+
+    <button type="button" id="startOverButton">Start Over</button>
+</body>
+
+</html>

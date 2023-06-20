@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order System</title>
+    <script>
+        window.onload = function () {
+            var items = [
+                { name: "Item 1", price: 10, quantity: 0 },
+                { name: "Item 2", price: 15, quantity: 0 },
+                { name: "Item 3", price: 20, quantity: 0 },
+                { name: "Item 4", price: 25, quantity: 0 },
+                { name: "Item 5", price: 30, quantity: 0 }
+            ];
+
+            var itemSelect = document.getElementById("itemSelect");
+            var orderDisplay = document.getElementById("orderDisplay");
+            var totalDisplay = document.getElementById("totalDisplay");
+            var quantityInput = document.getElementById("quantityInput");
+
+            for (var i = 0; i < items.length; i++) {
+                var option = document.createElement("option");
+                option.value = i;
+                option.text = items[i].name;
+                itemSelect.appendChild(option);
+            }
+
+            var order = [];
+            var total = 0;
+
+            function addItem() {
+                var selectedIndex = itemSelect.selectedIndex;
+                var quantity = parseInt(quantityInput.value);
+
+                if (isNaN(quantity) || quantity < 1 || quantity > 100) {
+                    alert("Please enter a valid quantity between 1 and 100.");
+                    return;
+                }
+
+                var selected = items[selectedIndex];
+
+                // Check if the item is already in the order
+                var orderIndex = order.findIndex(function (item) {
+                    return item.name === selected.name;
+                });
+
+                if (orderIndex === -1) {
+                    // If not in order, add the item to the order
+                    order.push({ name: selected.name, price: selected.price, quantity: quantity });
+                } else {
+                    // If already in order, update the quantity
+                    order[orderIndex].quantity += quantity;
+                }
+
+                selected.quantity += quantity;
+                total += selected.price * quantity;
+
+                updateOrderDisplay();
+                updateTotalDisplay();
+
+                // quantityInput.value = "";
+            }
+
+            function updateOrderDisplay() {
+                orderDisplay.innerHTML = "";
+                for (var i = 0; i < order.length; i++) {
+                    var item = order[i];
+                    orderDisplay.innerHTML += item.quantity + " of " + item.name + " - $" + (item.price * item.quantity) + "<br>";
+                }
+            }
+
+            function updateTotalDisplay() {
+                totalDisplay.innerHTML = "Total: $" + total;
+            }
+
+            function startOver() {
+                order = [];
+                total = 0;
+                updateOrderDisplay();
+                updateTotalDisplay();
+                quantityInput.value = "";
+            }
+
+            document.getElementById("addButton").addEventListener("click", addItem);
+            document.getElementById("startOverButton").addEventListener("click", startOver);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Order System</h1>
+
+    <form>
+        <label for="itemSelect">Item:</label>
+        <select id="itemSelect"></select>
+
+        <br><br>
+
+        <label for="quantityInput">Quantity:</label>
+        <input type="number" id="quantityInput" min="1" max="100">
+
+        <button type="button" id="addButton">Add</button>
+    </form>
+
+    <div id="orderDisplay"></div>
+    <div id="totalDisplay">Total: $0</div>
+
+    <br>
+
+    <button type="button" id="startOverButton">Start Over</button>
+</body>
+
+</html>

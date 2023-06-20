@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Numbered List of Names</title>
+</head>
+
+<body>
+    <h1>Numbered List of Names</h1>
+
+    <ol id="namesList"></ol>
+
+    <script>
+        // Define the names as a string
+        var namesString = "Pat, Chris, Marlon, Ferncroft, Assunta";
+
+        // Split the namesString into an array of names
+        var namesArray = namesString.split(", ");
+
+        // Map over the namesArray and format each name as an <li> element
+        var formattedNames = namesArray.map(function (name, index) {
+            return "<li>" + name + "</li>";
+        });
+
+        // Join the formattedNames array into a single string with line breaks
+        var numberedList = formattedNames.join("\n");
+
+        // Display the numbered list
+        var namesListElement = document.getElementById("namesList");
+        namesListElement.innerHTML = numberedList;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greetings Form</title>
+    <script>
+        window.onload = function () {
+            var buttons = document.getElementsByTagName("button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", speak);
+            }
+        };
+
+        function speak() {
+            // Get the prefix from the button text
+            var prefix = this.innerText;
+
+            // Get the value from the name input box
+            var name = document.getElementById("nameInput").value;
+
+            // Display the alert message
+            alert(prefix + " " + name);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Greetings Form</h1>
+
+    <form>
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput">
+
+        <br><br>
+
+        <button type="button">Hello</button>
+        <button type="button">Goodbye</button>
+        <button type="button">Greetings</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word Count</title>
+    <script>
+        window.addEventListener("load", function () {
+            // Prompt the user for a sentence
+            var sentence = prompt("Enter a sentence:");
+
+            // Remove leading and trailing white spaces
+            sentence = sentence.trim();
+
+            // Split the sentence into an array of words
+            var words = sentence.split(" ");
+
+            // Display the number of words in the sentence
+            alert("Number of words in the sentence: " + words.length);
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Word Count</h1>
+</body>
+
+</html>
