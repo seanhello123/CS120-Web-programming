@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON Song List</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("songlist.json", function (data) {
+                var songs = data.songs;
+
+                songs.forEach(function (song) {
+                    var songInfo = $("<div></div>")
+                        .addClass("song-info")
+                        .append($("<h2></h2>").text(song.title))
+                        .append($("<p></p>").text("Artist: " + song.artist))
+                        .append($("<p></p>").text("Genre: " + song.genres.join(", ")))
+                        .append($("<p></p>").text("Released " + song.year));
+
+                    $("body").append(songInfo);
+                });
+            });
+        });
+    </script>
+    <style>
+        .song-info {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Song List</h1>
+</body>
+
+</html>

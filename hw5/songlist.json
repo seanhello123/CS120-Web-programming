@@ -1,0 +1,91 @@
+{
+    "songs": [
+        {
+            "title": "Bohemian Rhapsody",
+            "artist": "Queen",
+            "genres": [
+                "Rock",
+                "Progressive Rock"
+            ],
+            "year": 1975
+        },
+        {
+            "title": "Hotel California",
+            "artist": "Eagles",
+            "genres": [
+                "Rock"
+            ],
+            "year": 1976
+        },
+        {
+            "title": "Billie Jean",
+            "artist": "Michael Jackson",
+            "genres": [
+                "Pop",
+                "Funk"
+            ],
+            "year": 1982
+        },
+        {
+            "title": "I Will Always Love You",
+            "artist": "Whitney Houston",
+            "genres": [
+                "Pop",
+                "R&B"
+            ],
+            "year": 1992
+        },
+        {
+            "title": "Sweet Child o' Mine",
+            "artist": "Guns N' Roses",
+            "genres": [
+                "Rock",
+                "Hard Rock"
+            ],
+            "year": 1987
+        },
+        {
+            "title": "Wonderwall",
+            "artist": "Oasis",
+            "genres": [
+                "Rock",
+                "Britpop"
+            ],
+            "year": 1995
+        },
+        {
+            "title": "Hey Jude",
+            "artist": "The Beatles",
+            "genres": [
+                "Rock",
+                "Pop"
+            ],
+            "year": 1968
+        },
+        {
+            "title": "Smooth Criminal",
+            "artist": "Michael Jackson",
+            "genres": [
+                "Pop",
+                "R&B"
+            ],
+            "year": 1987
+        },
+        {
+            "title": "Hotel California",
+            "artist": "The Eagles",
+            "genres": [
+                "Rock"
+            ],
+            "year": 1976
+        },
+        {
+            "title": "Livin' on a Prayer",
+            "artist": "Bon Jovi",
+            "genres": [
+                "Rock"
+            ],
+            "year": 1986
+        }
+    ]
+}
