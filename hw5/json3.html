@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON Song List</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Retrieve the JSON data
+            $.get("songlist.json", function (data) {
+                var songs = data.songs;
+
+                // Populate the drop-down list with genres from the JSON data
+                var genreDropdown = $("#genre-dropdown");
+                songs.forEach(function (song) {
+                    song.genres.forEach(function (genre) {
+                        if (!genreDropdown.find('option[value="' + genre + '"]').length) {
+                            genreDropdown.append($("<option></option>").attr("value", genre).text(genre));
+                        }
+                    });
+                });
+            });
+
+            // Event handler for the filter button
+            $("#filter-button").click(function () {
+                var selectedGenre = $("#genre-dropdown").val();
+                var filteredSongs = [];
+
+                // Filter the songs based on the selected genre
+                $.get("songlist.json", function (data) {
+                    filteredSongs = data.songs.filter(function (song) {
+                        return song.genres.includes(selectedGenre);
+                    });
+
+                    // Display the song titles on the page
+                    var songTitles = filteredSongs.map(function (song) {
+                        return song.title;
+                    });
+
+                    $("#song-list").empty();
+                    songTitles.forEach(function (title) {
+                        $("#song-list").append($("<li></li>").text(title));
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>JSON Song List</h1>
+    <form id="filter-form">
+        <label for="genre-dropdown">Select Genre:</label>
+        <select id="genre-dropdown"></select>
+        <button type="button" id="filter-button">Filter</button>
+    </form>
+    <ul id="song-list"></ul>
+</body>
+
+</html>

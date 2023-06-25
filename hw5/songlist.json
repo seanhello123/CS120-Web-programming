@@ -72,12 +72,13 @@
             "year": 1987
         },
         {
-            "title": "Hotel California",
-            "artist": "The Eagles",
+            "title": "Sugar",
+            "artist": "Maroon 5",
             "genres": [
-                "Rock"
+                "Pop",
+                "Funk"
             ],
-            "year": 1976
+            "year": 2014
         },
         {
             "title": "Livin' on a Prayer",
