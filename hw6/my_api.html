@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API call with AJAX pattern and fetch </title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container>div {
+            width: 45%;
+        }
+
+        #info{
+			font-family: verdana;
+			padding-left: 40px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			border: 5px solid;
+			width: fit-content;
+		}
+        
+        #exchange_rates{
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+
+        h1 {
+            text-align: center;
+        }
+
+        td, th {
+		  border: 2px solid black;
+		  text-align: left;
+		  padding: 8px;
+		}
+
+    </style>
+</head>
+
+<body>
+    <h1>Exchange Rates</h1>
+    <div class="container">
+        <div>
+            <h2>AJAX Pattern</h2>
+            <div id="result-ajax"></div>
+        </div>
+        <div>
+            <h2>Fetch API</h2>
+            <div id="result-fetch"></div>
+        </div>
+    </div>
+
+    <h2>describe the API you selected and what it does</h2>
+    <p>
+        The API used in this example is the open ExchangeRate-API. It provides exchange rates data for various currencies in terms of a base currency you choose such as USD.
+    </p>
+
+    <h2>cite the website where you found it</h2>
+    <p>
+        I found the API on the public APIs GitHub page linked in the resources page on Canvas. I used the open access API version which does not require an API key to access. The API website is <a href="https://www.exchangerate-api.com/docs/free">https://www.exchangerate-api.com/docs/free</a>.
+    </p>
+
+    <h2>describe the options/parameters you used for the API request – i.e., what info did you need to provide to the API to get
+    your results?
+    </h2>
+    <p>
+        For the API request in this example, no specific parameters were used. The endpoint <a href = "https://open.er-api.com/v6/latest/USD">https://open.er-api.com/v6/latest/USD</a> retrieves the latest exchange rates for USD as the base currency. You can change it to other base currencies such as Euros by changing USD to EUR at the end.
+    </p>
+
+    <h2>give two applications where this API would be helpful.</h2>
+    <ul>
+        <li>Currency conversion apps</li>
+        <li>Financial analysis tools</li>
+    </ul>
+
+    <script>
+        // AJAX pattern
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://open.er-api.com/v6/latest/USD', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                displayExchangeRates(response, 'result-ajax');
+            }
+        };
+        xhr.send();
+
+        // fetch API
+        fetch('https://open.er-api.com/v6/latest/USD')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                displayExchangeRates(data, 'result-fetch');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        function displayExchangeRates(data, elementId) {
+            var resultDiv = document.getElementById(elementId);
+            var rates = data.rates;
+            var output = '';
+            output = "<div id = 'info'> The base currency of the exchange values is: <mark>" + data["base_code"] + "</mark>. <br>";
+            output += "The information was last updated at: <mark>" + data["time_last_update_utc"] + "</mark>. <br><br>";
+            output += "<table id = 'exchange_rates'> <tr> <th> Currency </th> <th> Exchange Rate </th> </tr>";
+
+            for (var currency in rates) {
+                output += "<tr> <td>" + currency + "</td>";
+                output += "<td>" + rates[currency] + "</td>";
+                // output += '<p>' + currency + ': ' + rates[currency] + '</p>';
+            }
+
+            resultDiv.innerHTML = output;
+        }
+    </script>
+</body>
+
+</html>
