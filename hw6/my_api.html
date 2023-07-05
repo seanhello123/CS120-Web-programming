@@ -106,7 +106,7 @@
             var rates = data.rates;
             var output = '';
             output = "<div id = 'info'> The base currency of the exchange values is: <mark>" + data["base_code"] + "</mark>. <br>";
-            output += "The information was last updated at: <mark>" + data["time_last_update_utc"] + "</mark>. <br><br>";
+            output += "The information was lastly updated at: <mark>" + data["time_last_update_utc"] + "</mark>. <br><br>";
             output += "<table id = 'exchange_rates'> <tr> <th> Currency </th> <th> Exchange Rate </th> </tr>";
 
             for (var currency in rates) {
